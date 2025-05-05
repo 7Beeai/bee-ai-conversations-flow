@@ -1,9 +1,6 @@
-
 import { Phone, MessageSquare, MessageCircle } from "lucide-react";
-
 const Footer = () => {
-  return (
-    <footer className="bg-dark-base text-white pt-16 pb-8">
+  return <footer className="bg-dark-base text-white pt-16 pb-8">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
@@ -56,23 +53,7 @@ const Footer = () => {
           
           <div>
             <h3 className="text-lg font-bold mb-6">Recursos</h3>
-            <ul className="space-y-4">
-              <li>
-                <a href="#" className="text-gray-300 hover:text-primary transition-colors">Como Funciona</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-primary transition-colors">Cases de Sucesso</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-primary transition-colors">Blog</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-primary transition-colors">Recursos Gratuitos</a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-300 hover:text-primary transition-colors">Integrações</a>
-              </li>
-            </ul>
+            
           </div>
           
           <div>
@@ -119,8 +100,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
