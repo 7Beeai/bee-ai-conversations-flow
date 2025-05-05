@@ -51,31 +51,16 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div>
-            <h3 className="text-lg font-bold mb-6">Recursos</h3>
-            
-          </div>
+          
           
           <div>
             <h3 className="text-lg font-bold mb-6">Contato</h3>
             <ul className="space-y-4">
-              <li className="flex items-center">
-                <Phone className="h-5 w-5 mr-3 text-primary" />
-                <a href="tel:+551199999999" className="text-gray-300 hover:text-primary transition-colors">
-                  (11) 9999-9999
-                </a>
-              </li>
-              <li className="flex items-center">
-                <MessageCircle className="h-5 w-5 mr-3 text-primary" />
-                <a href="https://wa.me/5511999999999" className="text-gray-300 hover:text-primary transition-colors">
-                  WhatsApp
-                </a>
-              </li>
+              
+              
               <li className="flex items-center">
                 <MessageSquare className="h-5 w-5 mr-3 text-primary" />
-                <a href="mailto:contato@7bee.ai" className="text-gray-300 hover:text-primary transition-colors">
-                  contato@7bee.ai
-                </a>
+                <a href="mailto:contato@7bee.ai" className="text-gray-300 hover:text-primary transition-colors">andre@7bee.com</a>
               </li>
             </ul>
           </div>
@@ -87,12 +72,8 @@ const Footer = () => {
               © 2025 7Bee.AI. Todos os direitos reservados.
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
-                Política de Privacidade
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary transition-colors">
-                Termos de Uso
-              </a>
+              
+              
               <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 Cookies
               </a>
