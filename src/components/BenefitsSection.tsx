@@ -1,5 +1,6 @@
 
-import { Check } from "lucide-react";
+import { TrendingUp, Clock, CalendarClock, Zap, UserCheck, Scale, BarChart3, Database, Rocket } from "lucide-react";
+import DemoButton from "./DemoButton";
 
 const BenefitsSection = () => {
   return (
@@ -16,47 +17,60 @@ const BenefitsSection = () => {
           <BenefitCard 
             title="Aumente suas vendas"
             description="Média de 35% de aumento em conversões nos primeiros 3 meses de implementação."
+            icon={<TrendingUp className="h-5 w-5 text-white" />}
           />
           
           <BenefitCard 
             title="Reduza custos operacionais"
             description="Economia de até 60% nos custos de atendimento e vendas em comparação com equipes tradicionais."
+            icon={<Scale className="h-5 w-5 text-white" />}
           />
           
           <BenefitCard 
             title="Atendimento 24/7"
             description="Disponibilidade constante sem custos adicionais de hora extra ou plantões."
+            icon={<Clock className="h-5 w-5 text-white" />}
           />
           
           <BenefitCard 
             title="Zero tempo de espera"
             description="Atendimento instantâneo para cada cliente, eliminando abandono por demora."
+            icon={<Zap className="h-5 w-5 text-white" />}
           />
           
           <BenefitCard 
             title="Experiência consistente"
             description="Qualidade padronizada em todas as interações, independente do volume ou horário."
+            icon={<UserCheck className="h-5 w-5 text-white" />}
           />
           
           <BenefitCard 
             title="Escalabilidade imediata"
             description="Capacidade de atender de dezenas a milhares de clientes simultaneamente."
+            icon={<BarChart3 className="h-5 w-5 text-white" />}
           />
           
           <BenefitCard 
             title="Insights valiosos"
             description="Análise completa de conversas e comportamento dos clientes para otimizar estratégias."
+            icon={<Database className="h-5 w-5 text-white" />}
           />
           
           <BenefitCard 
             title="Integração completa"
             description="Conexão com sistemas CRM, ERP, WhatsApp Business e outras plataformas que você já utiliza."
+            icon={<CalendarClock className="h-5 w-5 text-white" />}
           />
           
           <BenefitCard 
             title="Implementação rápida"
             description="Em produção em até 15 dias, sem necessidade de mudanças em sua infraestrutura atual."
+            icon={<Rocket className="h-5 w-5 text-white" />}
           />
+        </div>
+
+        <div className="mt-12 text-center">
+          <DemoButton className="text-lg py-4 px-6" />
         </div>
       </div>
     </section>
@@ -66,15 +80,16 @@ const BenefitsSection = () => {
 type BenefitCardProps = {
   title: string;
   description: string;
+  icon: React.ReactNode;
 };
 
-const BenefitCard = ({ title, description }: BenefitCardProps) => {
+const BenefitCard = ({ title, description, icon }: BenefitCardProps) => {
   return (
     <div className="bg-dark-base/50 border border-gray-700 p-8 rounded-xl hover:border-primary/50 transition-colors">
       <div className="flex items-start gap-4 mb-4">
         <div className="flex-shrink-0 mt-1">
           <div className="bg-primary rounded-full p-1">
-            <Check className="h-5 w-5 text-white" />
+            {icon}
           </div>
         </div>
         <h3 className="text-xl font-bold text-white">{title}</h3>

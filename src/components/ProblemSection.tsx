@@ -1,5 +1,6 @@
 
-import { MessageSquare, X } from "lucide-react";
+import { MessageCircle, Users, X, Repeat, TrendingUp, Zap } from "lucide-react";
+import DemoButton from "./DemoButton";
 
 const ProblemSection = () => {
   return (
@@ -16,13 +17,13 @@ const ProblemSection = () => {
           <ProblemCard 
             title="Chatbots Impessoais"
             description="Scripts engessados que parecem robôs e frustram seus clientes, gerando abandono na jornada de compra."
-            icon={<MessageSquare className="h-8 w-8 text-red-500" />}
+            icon={<MessageCircle className="h-8 w-8 text-red-500" />}
           />
           
           <ProblemCard 
             title="Equipe Sobrecarregada"
             description="Atendentes humanos esgotados respondendo as mesmas perguntas, quando poderiam focar em demandas estratégicas."
-            icon={<X className="h-8 w-8 text-red-500" />}
+            icon={<Users className="h-8 w-8 text-red-500" />}
           />
           
           <ProblemCard 
@@ -34,20 +35,24 @@ const ProblemSection = () => {
           <ProblemCard 
             title="Alta Rotatividade"
             description="Dificuldade em manter equipes de vendas e suporte, impactando diretamente na experiência do cliente."
-            icon={<X className="h-8 w-8 text-red-500" />}
+            icon={<Repeat className="h-8 w-8 text-red-500" />}
           />
           
           <ProblemCard 
             title="Custos Crescentes"
             description="Expansão constante do time sem ganho proporcional em vendas, reduzindo suas margens de lucro."
-            icon={<X className="h-8 w-8 text-red-500" />}
+            icon={<TrendingUp className="h-8 w-8 text-red-500" />}
           />
           
           <ProblemCard 
             title="Experiência Inconsistente"
             description="Qualidade do atendimento varia conforme o atendente, criando experiências desiguais para seus clientes."
-            icon={<MessageSquare className="h-8 w-8 text-red-500" />}
+            icon={<Zap className="h-8 w-8 text-red-500" />}
           />
+        </div>
+
+        <div className="mt-12 text-center">
+          <DemoButton className="text-lg py-4 px-6" />
         </div>
       </div>
     </section>

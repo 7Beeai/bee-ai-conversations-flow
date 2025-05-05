@@ -1,4 +1,6 @@
-import { Phone, MessageSquare, MessageCircle } from "lucide-react";
+
+import { MessageSquare, MessageCircle } from "lucide-react";
+
 const Footer = () => {
   return <footer className="bg-dark-base text-white pt-16 pb-8">
       <div className="container">
@@ -51,18 +53,26 @@ const Footer = () => {
             </ul>
           </div>
           
-          
-          
           <div>
             <h3 className="text-lg font-bold mb-6">Contato</h3>
             <ul className="space-y-4">
-              
-              
+              <li className="flex items-center">
+                <MessageCircle className="h-5 w-5 mr-3 text-primary" />
+                <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20conhecer%20mais%20sobre%20a%207Bee.AI" className="text-gray-300 hover:text-primary transition-colors">WhatsApp</a>
+              </li>
               <li className="flex items-center">
                 <MessageSquare className="h-5 w-5 mr-3 text-primary" />
                 <a href="mailto:contato@7bee.ai" className="text-gray-300 hover:text-primary transition-colors">andre@7bee.com</a>
               </li>
             </ul>
+          </div>
+          
+          <div className="lg:col-span-1">
+            <h3 className="text-lg font-bold mb-6">Demonstração</h3>
+            <p className="text-gray-300 mb-4">
+              Veja como a 7Bee.AI pode transformar seu negócio hoje.
+            </p>
+            <DemoButton size="sm" variant="outline" className="w-full justify-center" />
           </div>
         </div>
         
@@ -72,8 +82,6 @@ const Footer = () => {
               © 2025 7Bee.AI. Todos os direitos reservados.
             </p>
             <div className="flex space-x-6">
-              
-              
               <a href="#" className="text-gray-400 hover:text-primary transition-colors">
                 Cookies
               </a>
@@ -83,4 +91,5 @@ const Footer = () => {
       </div>
     </footer>;
 };
+
 export default Footer;
