@@ -1,5 +1,6 @@
 
 import { MessageSquare, MessageCircle } from "lucide-react";
+import DemoButton from "./DemoButton";
 
 const Footer = () => {
   return <footer className="bg-dark-base text-white pt-16 pb-8">
