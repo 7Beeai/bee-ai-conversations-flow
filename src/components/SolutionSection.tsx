@@ -6,7 +6,7 @@ const SolutionSection = () => {
     <section className="section bg-neutral-bg" id="solucao">
       <div className="container">
         <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-center">
-          <div className="w-full md:w-1/2">
+          <div className="hidden md:block w-full md:w-1/2">
             <img 
               src="https://source.unsplash.com/random/600x600/?ai,business" 
               alt="Solução inteligente 7Bee.AI" 

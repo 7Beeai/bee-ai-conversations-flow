@@ -26,6 +26,8 @@ const Header = () => {
       isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
+        <div className="flex-1 md:flex-none"></div>
+        
         <div className="flex items-center">
           <span className="text-2xl md:text-3xl font-bold">7Bee<span className="text-primary">.AI</span></span>
         </div>
@@ -46,7 +48,6 @@ const Header = () => {
 
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center">
-          <DemoButton size="sm" className="mr-2" />
           <Button
             variant="ghost"
             size="icon"
@@ -84,6 +85,11 @@ const Header = () => {
               >
                 FAQ
               </a>
+              <div className="pt-2">
+                <a href="/chat" className="block">
+                  <Button className="w-full justify-center">Saiba Mais</Button>
+                </a>
+              </div>
               <div className="pt-2">
                 <DemoButton className="w-full justify-center" />
               </div>

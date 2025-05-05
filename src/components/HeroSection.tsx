@@ -1,5 +1,6 @@
 
 import DemoButton from "./DemoButton";
+import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
@@ -13,7 +14,7 @@ const HeroSection = () => {
             <p className="text-lg sm:text-xl md:text-2xl text-secondary-text mb-8 max-w-xl mx-auto lg:mx-0">
               Conversas naturais, personalizadas, voltadas para resultado — 100% adaptadas ao seu negócio.
             </p>
-            <div className="flex justify-center lg:justify-start">
+            <div className="hidden md:flex justify-center lg:justify-start">
               <DemoButton className="text-lg py-4 px-6 md:py-6 md:px-8" />
             </div>
           </div>
@@ -28,6 +29,14 @@ const HeroSection = () => {
               <img src="https://source.unsplash.com/random/800x450/?business,presentation" alt="7Bee.AI em ação" className="w-full h-full object-cover" />
             </div>
           </div>
+        </div>
+        <div className="md:hidden flex justify-center mt-8">
+          <DemoButton className="text-lg py-4 px-6 w-full" />
+        </div>
+        <div className="md:hidden flex justify-center mt-4">
+          <a href="/chat" className="w-full">
+            <Button className="w-full py-4 px-6">Saiba Mais</Button>
+          </a>
         </div>
       </div>
     </section>

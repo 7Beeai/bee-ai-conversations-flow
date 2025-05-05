@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 type DemoButtonProps = {
   className?: string;
@@ -13,27 +14,12 @@ const DemoButton = ({
   size = "default",
   variant = "default"
 }: DemoButtonProps) => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    // Initial check
-    checkIsMobile();
-    
-    // Set up event listener for window resize
-    window.addEventListener('resize', checkIsMobile);
-    
-    // Clean up
-    return () => window.removeEventListener('resize', checkIsMobile);
-  }, []);
+  const isMobile = useIsMobile();
 
   const handleClick = () => {
     if (isMobile) {
       // Redirect to WhatsApp on mobile
-      window.open('https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20conhecer%20mais%20sobre%20a%207Bee.AI', '_blank');
+      window.open('https://wa.me/5531984849770?text=Olá!%20Gostaria%20de%20conhecer%20mais%20sobre%20a%207Bee.AI', '_blank');
     } else {
       // Open chat modal on desktop
       document.getElementById('chat-modal')?.classList.remove('hidden');
@@ -45,7 +31,7 @@ const DemoButton = ({
       onClick={handleClick}
       size={size}
       variant={variant}
-      className={`animate-pulse-light font-medium ${className}`}
+      className={`animate-pulse-light font-medium w-full md:w-auto ${className}`}
     >
       👉 Quero uma demonstração agora
     </Button>
