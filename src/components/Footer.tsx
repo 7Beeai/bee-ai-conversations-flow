@@ -1,5 +1,5 @@
 
-import { Phone, MessageSquare, WhatsApp } from "lucide-react";
+import { Phone, MessageSquare, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -85,7 +85,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center">
-                <WhatsApp className="h-5 w-5 mr-3 text-primary" />
+                <MessageCircle className="h-5 w-5 mr-3 text-primary" />
                 <a href="https://wa.me/5511999999999" className="text-gray-300 hover:text-primary transition-colors">
                   WhatsApp
                 </a>
