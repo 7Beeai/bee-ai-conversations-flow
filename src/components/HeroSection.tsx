@@ -4,7 +4,7 @@ const HeroSection = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <h1 className="text-4xl lg:text-6xl mb-6 leading-tight md:text-5xl text-center font-extrabold">
+            <h1 className="text-4xl mb-6 leading-tight md:text-5xl font-extrabold text-left lg:text-6xl">
               Seu time precisa de <span className="text-primary">inteligência</span>. A gente entrega.
             </h1>
             <p className="text-xl md:text-2xl text-secondary-text mb-8 max-w-xl mx-auto lg:mx-0">
