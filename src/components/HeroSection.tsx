@@ -1,13 +1,10 @@
-
 import DemoButton from "./DemoButton";
-
 const HeroSection = () => {
-  return (
-    <section className="pt-32 pb-16 md:pb-24 md:pt-40 bg-neutral-bg">
+  return <section className="pt-32 pb-16 md:pb-24 md:pt-40 bg-neutral-bg">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl lg:text-6xl mb-6 leading-tight md:text-5xl text-center font-extrabold">
               Seu time precisa de <span className="text-primary">inteligência</span>. A gente entrega.
             </h1>
             <p className="text-xl md:text-2xl text-secondary-text mb-8 max-w-xl mx-auto lg:mx-0">
@@ -23,17 +20,11 @@ const HeroSection = () => {
                   <div className="w-0 h-0 border-t-[10px] border-b-[10px] border-l-[18px] border-transparent border-l-white ml-2"></div>
                 </div>
               </div>
-              <img 
-                src="https://source.unsplash.com/random/800x450/?business,presentation" 
-                alt="7Bee.AI em ação" 
-                className="w-full h-full object-cover"
-              />
+              <img src="https://source.unsplash.com/random/800x450/?business,presentation" alt="7Bee.AI em ação" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
