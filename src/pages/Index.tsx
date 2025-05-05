@@ -1,10 +1,8 @@
-
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ProblemSection from "@/components/ProblemSection";
 import SolutionSection from "@/components/SolutionSection";
-import SolutionSectionExtension from "@/components/SolutionSection"; // Import the extension
 import HowItWorksSection from "@/components/HowItWorksSection";
 import BenefitsSection from "@/components/BenefitsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -42,7 +40,6 @@ const Index = () => {
         <HeroSection />
         <ProblemSection />
         <SolutionSection />
-        <SolutionSectionExtension /> {/* Add the CTA extension */}
         <HowItWorksSection />
         <BenefitsSection />
         <TestimonialsSection />
