@@ -12,7 +12,7 @@ const CtaSection = () => {
             seu negócio com conversas inteligentes e personalizadas.
           </p>
           
-          <div className="inline-block animate-pulse-light mx-auto">
+          <div className="w-full sm:inline-block animate-pulse-light mx-auto">
             <DemoButton className="text-lg py-6 px-8 mx-auto" />
           </div>
           

@@ -25,7 +25,7 @@ const DemoButton = ({
       onClick={handleClick}
       size={size}
       variant={variant}
-      className={`animate-pulse-light font-medium w-full md:w-auto ${className}`}
+      className={`font-medium w-full md:w-auto ${className}`}
     >
       👉 Quero uma demonstração agora
     </Button>

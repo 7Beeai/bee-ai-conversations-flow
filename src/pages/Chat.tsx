@@ -94,21 +94,30 @@ const Chat = () => {
       // Parse the response
       const data = await response.json();
       
-      // Check if the response is an array and extract the first item
-      const responseData: WebhookResponse = Array.isArray(data) ? data[0] : data;
+      // Handle both array and direct object response formats
+      let botResponseText = "";
       
-      // Extract the output text from the response
-      const botResponse = responseData.output || "Desculpe, não consegui processar sua solicitação. Por favor, tente novamente.";
-      
-      setIsLoading(false);
+      if (Array.isArray(data) && data.length > 0) {
+        // If response is an array, take the first item
+        const responseData = data[0];
+        botResponseText = responseData.output || "Desculpe, não consegui processar sua solicitação. Por favor, tente novamente.";
+      } else if (data && typeof data === 'object') {
+        // If response is a direct object
+        botResponseText = data.output || "Desculpe, não consegui processar sua solicitação. Por favor, tente novamente.";
+      } else {
+        // Fallback for unexpected response format
+        botResponseText = "Desculpe, não consegui processar sua solicitação. Por favor, tente novamente.";
+      }
       
       // Add bot response to messages
       setMessages(prev => [...prev, {
         id: uuidv4(),
-        text: botResponse,
+        text: botResponseText,
         sender: "bot",
         timestamp: new Date(),
       }]);
+      
+      setIsLoading(false);
       
     } catch (error) {
       console.error("Error sending message:", error);
