@@ -1,10 +1,7 @@
-
 import DemoButton from "./DemoButton";
 import { Button } from "@/components/ui/button";
-
 const HeroSection = () => {
-  return (
-    <section className="pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-24 bg-neutral-bg">
+  return <section className="pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-24 bg-neutral-bg py-[80px]">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
@@ -35,12 +32,10 @@ const HeroSection = () => {
         </div>
         <div className="md:hidden flex justify-center mt-4">
           <a href="/chat" className="w-full">
-            <Button className="w-full py-4 px-6">Saiba Mais</Button>
+            
           </a>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
