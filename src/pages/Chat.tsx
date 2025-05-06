@@ -12,6 +12,23 @@ type Message = {
   timestamp: Date;
 };
 
+// Type for the webhook response
+type WebhookResponse = {
+  output: string;
+  threadId: string;
+  usage: {
+    prompt_tokens: number;
+    completion_tokens: number;
+    total_tokens: number;
+    prompt_token_details: {
+      cached_tokens: number;
+    };
+    completion_tokens_details: {
+      reasoning_tokens: number;
+    };
+  };
+};
+
 const Chat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState("");
@@ -74,18 +91,24 @@ const Chat = () => {
         throw new Error("Failed to send message");
       }
 
-      // In a real implementation, you would wait for a response from the backend
-      // For now, we'll just show a loading state and then a temporary response
-      setTimeout(() => {
-        setIsLoading(false);
-        // This would normally come from the server
-        setMessages(prev => [...prev, {
-          id: uuidv4(),
-          text: "Obrigado pela sua mensagem! Estamos processando sua solicitação e em breve retornaremos.",
-          sender: "bot",
-          timestamp: new Date(),
-        }]);
-      }, 1000);
+      // Parse the response
+      const data = await response.json();
+      
+      // Check if the response is an array and extract the first item
+      const responseData: WebhookResponse = Array.isArray(data) ? data[0] : data;
+      
+      // Extract the output text from the response
+      const botResponse = responseData.output || "Desculpe, não consegui processar sua solicitação. Por favor, tente novamente.";
+      
+      setIsLoading(false);
+      
+      // Add bot response to messages
+      setMessages(prev => [...prev, {
+        id: uuidv4(),
+        text: botResponse,
+        sender: "bot",
+        timestamp: new Date(),
+      }]);
       
     } catch (error) {
       console.error("Error sending message:", error);
@@ -95,6 +118,14 @@ const Chat = () => {
         description: "Não foi possível enviar sua mensagem. Por favor, tente novamente.",
         variant: "destructive",
       });
+      
+      // Add a fallback bot response
+      setMessages(prev => [...prev, {
+        id: uuidv4(),
+        text: "Desculpe, estamos enfrentando problemas técnicos. Por favor, tente novamente em alguns instantes.",
+        sender: "bot",
+        timestamp: new Date(),
+      }]);
     }
   };
 
@@ -129,7 +160,7 @@ const Chat = () => {
                         : "bg-gray-100"
                     }`}
                   >
-                    <p className="text-sm md:text-base">{message.text}</p>
+                    <p className="text-sm md:text-base whitespace-pre-line">{message.text}</p>
                     <div className="text-xs opacity-70 mt-1 text-right">
                       {message.timestamp.toLocaleTimeString([], {
                         hour: "2-digit",

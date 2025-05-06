@@ -1,7 +1,9 @@
+
 import DemoButton from "./DemoButton";
 import { Button } from "@/components/ui/button";
+
 const HeroSection = () => {
-  return <section className="pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-24 bg-neutral-bg py-[80px]">
+  return <section className="pt-16 md:pt-32 lg:pt-40 pb-12 md:pb-24 bg-neutral-bg">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
@@ -15,7 +17,7 @@ const HeroSection = () => {
               <DemoButton className="text-lg py-4 px-6 md:py-6 md:px-8" />
             </div>
           </div>
-          <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
+          <div className="w-full lg:w-1/2 mt-6 lg:mt-0">
             <div className="relative aspect-video rounded-lg shadow-xl overflow-hidden">
               {/* Placeholder for video - In production this would be replaced with actual video */}
               <div className="absolute inset-0 bg-dark-base/10 flex items-center justify-center">
@@ -27,15 +29,11 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-        <div className="md:hidden flex justify-center mt-8">
+        <div className="md:hidden flex justify-center mt-6">
           <DemoButton className="text-lg py-4 px-6 w-full" />
-        </div>
-        <div className="md:hidden flex justify-center mt-4">
-          <a href="/chat" className="w-full">
-            
-          </a>
         </div>
       </div>
     </section>;
 };
+
 export default HeroSection;

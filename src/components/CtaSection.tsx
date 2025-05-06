@@ -12,8 +12,8 @@ const CtaSection = () => {
             seu negócio com conversas inteligentes e personalizadas.
           </p>
           
-          <div className="inline-block animate-pulse-light">
-            <DemoButton className="text-lg py-6 px-8" />
+          <div className="inline-block animate-pulse-light mx-auto">
+            <DemoButton className="text-lg py-6 px-8 mx-auto" />
           </div>
           
           <p className="mt-6 text-secondary-text">
