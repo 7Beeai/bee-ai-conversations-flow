@@ -1,5 +1,5 @@
 
-import { MessageCircle, Users, X, Repeat, TrendingUp, Zap } from "lucide-react";
+import { MessageCircle, Users, DollarSign, RotateCcw, TrendingDown, Dice6 } from "lucide-react";
 import DemoButton from "./DemoButton";
 
 const ProblemSection = () => {
@@ -7,52 +7,54 @@ const ProblemSection = () => {
     <section className="section bg-white" id="problemas">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="mb-4">Você reconhece esses problemas?</h2>
+          <h2 className="mb-4">😓 Você enfrenta isso no seu dia a dia?</h2>
           <p className="text-secondary-text text-xl max-w-3xl mx-auto">
-            Atendimentos robóticos estão prejudicando suas vendas, relacionamento com clientes e a reputação da sua marca.
+            Esses problemas estão prejudicando suas vendas, relacionamento com clientes e a reputação da sua marca.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ProblemCard 
-            title="Chatbots Impessoais"
-            description="Scripts engessados que parecem robôs e frustram seus clientes, gerando abandono na jornada de compra."
+            title="🤖 Chatbots frios e impessoais afastando clientes"
+            description="Interações robotizadas que frustram seus clientes e prejudicam a experiência de compra."
             icon={<MessageCircle className="h-8 w-8 text-red-500" />}
           />
           
           <ProblemCard 
-            title="Equipe Sobrecarregada"
-            description="Atendentes humanos esgotados respondendo as mesmas perguntas, quando poderiam focar em demandas estratégicas."
+            title="⏳ Equipes sobrecarregadas respondendo sempre as mesmas perguntas"
+            description="Atendentes esgotados com tarefas repetitivas, quando poderiam focar em demandas estratégicas."
             icon={<Users className="h-8 w-8 text-red-500" />}
           />
           
           <ProblemCard 
-            title="Oportunidades Perdidas"
-            description="Leads não qualificados, follow-ups inconsistentes e falhas na conversão por falta de personalização."
-            icon={<X className="h-8 w-8 text-red-500" />}
+            title="💸 Leads perdidos por falta de follow-up automatizado e qualificado"
+            description="Oportunidades desperdiçadas por falhas na qualificação e acompanhamento de prospects."
+            icon={<DollarSign className="h-8 w-8 text-red-500" />}
           />
           
           <ProblemCard 
-            title="Alta Rotatividade"
-            description="Dificuldade em manter equipes de vendas e suporte, impactando diretamente na experiência do cliente."
-            icon={<Repeat className="h-8 w-8 text-red-500" />}
+            title="🔁 Alta rotatividade de vendedores e atendentes"
+            description="Dificuldade em manter equipes estáveis, impactando diretamente na experiência do cliente."
+            icon={<RotateCcw className="h-8 w-8 text-red-500" />}
           />
           
           <ProblemCard 
-            title="Custos Crescentes"
-            description="Expansão constante do time sem ganho proporcional em vendas, reduzindo suas margens de lucro."
-            icon={<TrendingUp className="h-8 w-8 text-red-500" />}
+            title="📉 Crescimento de equipe sem aumento proporcional nas vendas"
+            description="Expansão constante do time sem ganho proporcional em resultados, reduzindo suas margens."
+            icon={<TrendingDown className="h-8 w-8 text-red-500" />}
           />
           
           <ProblemCard 
-            title="Experiência Inconsistente"
-            description="Qualidade do atendimento varia conforme o atendente, criando experiências desiguais para seus clientes."
-            icon={<Zap className="h-8 w-8 text-red-500" />}
+            title="🎲 Atendimento que muda de acordo com o humor do atendente"
+            description="Qualidade inconsistente do atendimento, criando experiências desiguais para seus clientes."
+            icon={<Dice6 className="h-8 w-8 text-red-500" />}
           />
         </div>
 
         <div className="mt-12 text-center">
-          <DemoButton className="text-lg py-4 px-6" />
+          <DemoButton className="text-lg py-4 px-6">
+            👉 Veja na prática como a 7Bee.AI resolve isso
+          </DemoButton>
         </div>
       </div>
     </section>
