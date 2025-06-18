@@ -23,14 +23,14 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+      isScrolled ? 'bg-white shadow-md py-1' : 'bg-transparent py-2'
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
           <img 
             src="/lovable-uploads/cca8416a-fa5d-420a-9868-2d8a9bbb063c.png" 
             alt="7Bee.AI Logo" 
-            className="h-32 md:h-40 lg:h-48"
+            className="h-16 md:h-20 lg:h-24"
           />
         </div>
         
