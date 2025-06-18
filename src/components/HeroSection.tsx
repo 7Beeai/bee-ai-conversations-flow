@@ -1,14 +1,14 @@
-
 import DemoButton from "./DemoButton";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
-  return <section className="pt-12 md:pt-32 lg:pt-40 pb-8 md:pb-24 bg-neutral-bg">
+  return (
+    <section className="pt-8 md:pt-24 lg:pt-32 pb-8 md:pb-24 bg-neutral-bg">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 leading-tight font-extrabold text-center lg:text-left lg:text-6xl">
-              Seu time precisa de <span className="text-primary">inteligência</span>. A gente entrega.
+              Sua empresa precisa de <span className="text-primary">inteligência</span>. A gente entrega.
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-secondary-text mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0">
               Conversas naturais, personalizadas, voltadas para resultado — 100% adaptadas ao seu negócio.
@@ -33,7 +33,8 @@ const HeroSection = () => {
           <DemoButton className="text-lg py-4 px-6 w-full" />
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
 
 export default HeroSection;
