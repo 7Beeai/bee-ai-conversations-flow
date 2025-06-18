@@ -3,47 +3,41 @@ import { Check } from "lucide-react";
 
 const SolutionSection = () => {
   return (
-    <section className="section bg-neutral-bg" id="solucao">
-      <div className="container">
-        <div className="flex flex-col md:flex-row gap-12 md:gap-20 items-center">
-          <div className="hidden md:block w-full md:w-1/2">
-            <img 
-              src="https://source.unsplash.com/random/600x600/?ai,business" 
-              alt="Solução inteligente 7Bee.AI" 
-              className="rounded-xl shadow-lg w-full h-auto"
-            />
+    <section className="section bg-neutral-bg py-16 md:py-24" id="solucao">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-block mb-6 px-6 py-3 bg-primary/10 text-primary rounded-full font-medium text-lg">
+            Solução inteligente
           </div>
           
-          <div className="w-full md:w-1/2">
-            <div className="inline-block mb-4 px-4 py-2 bg-primary/10 text-primary rounded-full font-medium">
-              Solução inteligente
-            </div>
-            <h2 className="mb-6">IA com comportamento humano, sem scripts engessados</h2>
-            <p className="text-secondary-text text-lg mb-8">
-              A 7Bee.AI vai além dos chatbots tradicionais. Nossa tecnologia foi treinada por empresários para entender o contexto do seu negócio e se adaptar às nuances de cada conversa.
-            </p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
+            IA com comportamento humano, sem scripts engessados
+          </h2>
+          
+          <p className="text-secondary-text text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
+            A 7Bee.AI vai além dos chatbots tradicionais. Nossa tecnologia foi treinada por empresários para entender o contexto do seu negócio e se adaptar às nuances de cada conversa.
+          </p>
+          
+          <div className="grid md:grid-cols-2 gap-8 mt-16">
+            <SolutionFeature 
+              title="Conversas Naturais e Personalizadas" 
+              description="Interações que parecem realmente humanas, adaptativas ao contexto e às necessidades do cliente."
+            />
             
-            <div className="space-y-4">
-              <SolutionFeature 
-                title="Conversas Naturais e Personalizadas" 
-                description="Interações que parecem realmente humanas, adaptativas ao contexto e às necessidades do cliente."
-              />
-              
-              <SolutionFeature 
-                title="Foco em Resultados" 
-                description="Algoritmos otimizados para qualificar, engajar e converter, seguindo sua estratégia de vendas."
-              />
-              
-              <SolutionFeature 
-                title="Escalabilidade Instantânea" 
-                description="Atenda centenas ou milhares de clientes simultaneamente, sem perder qualidade."
-              />
-              
-              <SolutionFeature 
-                title="Integração Fácil" 
-                description="Se conecta com suas ferramentas existentes: CRM, WhatsApp, site e muito mais."
-              />
-            </div>
+            <SolutionFeature 
+              title="Foco em Resultados" 
+              description="Algoritmos otimizados para qualificar, engajar e converter, seguindo sua estratégia de vendas."
+            />
+            
+            <SolutionFeature 
+              title="Escalabilidade Instantânea" 
+              description="Atenda centenas ou milhares de clientes simultaneamente, sem perder qualidade."
+            />
+            
+            <SolutionFeature 
+              title="Integração Fácil" 
+              description="Se conecta com suas ferramentas existentes: CRM, WhatsApp, site e muito mais."
+            />
           </div>
         </div>
       </div>
@@ -58,15 +52,17 @@ type SolutionFeatureProps = {
 
 const SolutionFeature = ({ title, description }: SolutionFeatureProps) => {
   return (
-    <div className="flex gap-4">
-      <div className="flex-shrink-0 mt-1">
-        <div className="bg-primary rounded-full p-1">
-          <Check className="h-5 w-5 text-white" />
+    <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow text-left">
+      <div className="flex gap-4">
+        <div className="flex-shrink-0 mt-1">
+          <div className="bg-primary rounded-full p-2">
+            <Check className="h-6 w-6 text-white" />
+          </div>
         </div>
-      </div>
-      <div>
-        <h4 className="font-bold mb-1">{title}</h4>
-        <p className="text-secondary-text">{description}</p>
+        <div>
+          <h4 className="font-bold text-xl mb-3">{title}</h4>
+          <p className="text-secondary-text text-lg leading-relaxed">{description}</p>
+        </div>
       </div>
     </div>
   );
