@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+      isScrolled ? 'bg-white shadow-md py-1' : 'bg-transparent py-2'
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
@@ -63,36 +63,36 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg py-4">
+        <div className="md:hidden bg-white shadow-lg py-2">
           <div className="container mx-auto px-4">
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-col space-y-2">
               <a 
                 href="#como-funciona" 
-                className="font-medium text-dark-base hover:text-primary transition-colors py-2"
+                className="font-medium text-dark-base hover:text-primary transition-colors py-1"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Como Funciona
               </a>
               <a 
                 href="#beneficios" 
-                className="font-medium text-dark-base hover:text-primary transition-colors py-2"
+                className="font-medium text-dark-base hover:text-primary transition-colors py-1"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Benefícios
               </a>
               <a 
                 href="#faq" 
-                className="font-medium text-dark-base hover:text-primary transition-colors py-2"
+                className="font-medium text-dark-base hover:text-primary transition-colors py-1"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 FAQ
               </a>
-              <div className="pt-2">
+              <div className="pt-1">
                 <a href="/chat" className="block">
                   <Button className="w-full justify-center">Saiba Mais</Button>
                 </a>
               </div>
-              <div className="pt-2">
+              <div className="pt-1">
                 <DemoButton className="w-full justify-center" />
               </div>
             </nav>
