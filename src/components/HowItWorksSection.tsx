@@ -16,26 +16,26 @@ const HowItWorksSection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <StepCard 
             number="01"
-            title="Clique no botão e comece agora mesmo"
-            description="Inicie uma demonstração imediata da nossa tecnologia de IA conversacional"
+            title="Inicie a conversa"
+            description="Clique no botão e comece uma demonstração imediata de nossa tecnologia"
           />
           
           <StepCard 
             number="02"
-            title="Converse com nossa IA e veja como ela entende contexto e responde naturalmente"
-            description="Experimente interações que parecem verdadeiramente humanas e contextualizadas"
+            title="Experimente a interação"
+            description="Veja como nossa solução entende contexto e responde de forma natural"
           />
           
           <StepCard 
             number="03"
-            title="Explore recursos avançados que se moldam ao seu negócio"
-            description="Descubra como nossa solução se adapta especificamente às necessidades da sua empresa"
+            title="Conheça os recursos"
+            description="Explore como a tecnologia pode se adaptar especificamente ao seu negócio"
           />
           
           <StepCard 
             number="04"
-            title="Agende uma conversa real com nosso time, sem compromisso"
-            description="Marque uma reunião personalizada para discutir implementação e próximos passos"
+            title="Agende próximos passos"
+            description="Marque uma reunião com um especialista para implementação personalizada"
           />
         </div>
         
