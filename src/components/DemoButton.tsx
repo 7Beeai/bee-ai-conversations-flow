@@ -22,19 +22,17 @@ const DemoButton = ({
     navigate("/chat");
   };
 
-  // Force text display for mobile
-  const buttonText = children ? children : "👉 Quero uma demonstração agora";
+  // Ensure text is always displayed, with fallback for mobile
+  const displayText = children || "👉 Quero uma demonstração agora";
 
   return (
     <Button 
       onClick={handleClick}
       size={size}
       variant={variant}
-      className={`font-medium w-full md:w-auto ${className}`}
+      className={`font-medium w-full md:w-auto whitespace-normal ${className}`}
     >
-      <span className="block w-full text-center">
-        {buttonText}
-      </span>
+      {displayText}
     </Button>
   );
 };
