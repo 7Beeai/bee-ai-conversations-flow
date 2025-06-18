@@ -7,9 +7,9 @@ const SolutionSection = () => {
             🚀 Nossa solução: IA com comportamento humano e foco em resultados
           </div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">A 7Bee.AI é desenvolve muito mais do que um chatbot</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">Na 7Bee.AI, não desenvolvemos um chatbot genérico</h2>
           
-          <p className="text-secondary-text text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">É uma empresa que desenvolve</p>
+          <p className="text-secondary-text text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">Criamos IAs que entendem o contexto do seu negócio, respondem como humanos e atuam para vender, encantar e resolver.</p>
           
           <div className="grid md:grid-cols-2 gap-8 mt-16">
             <SolutionFeature title="Conversas naturais e personalizadas" description="Interações que parecem realmente humanas, adaptativas ao contexto e às necessidades do cliente." emoji="🧠" />
