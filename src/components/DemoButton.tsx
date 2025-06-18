@@ -22,6 +22,9 @@ const DemoButton = ({
     navigate("/chat");
   };
 
+  // Force text display for mobile
+  const buttonText = children ? children : "👉 Quero uma demonstração agora";
+
   return (
     <Button 
       onClick={handleClick}
@@ -29,7 +32,9 @@ const DemoButton = ({
       variant={variant}
       className={`font-medium w-full md:w-auto ${className}`}
     >
-      {children || "👉 Quero uma demonstração agora"}
+      <span className="block w-full text-center">
+        {buttonText}
+      </span>
     </Button>
   );
 };
