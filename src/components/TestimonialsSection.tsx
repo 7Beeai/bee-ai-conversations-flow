@@ -1,3 +1,4 @@
+
 const TestimonialsSection = () => {
   const testimonials = [{
     quote: "A 7Bee.AI transformou completamente nosso atendimento. Agora conseguimos responder 24/7 com qualidade.",
@@ -15,14 +16,42 @@ const TestimonialsSection = () => {
     company: "Ortopedia Moderna",
     imageUrl: "https://source.unsplash.com/random/100x100/?doctor,professional"
   }];
-  return;
+
+  return (
+    <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            O que nossos clientes dizem
+          </h2>
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+            Veja como a 7Bee.AI tem transformado clínicas e consultórios em todo o Brasil
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard 
+              key={index}
+              quote={testimonial.quote}
+              author={testimonial.author}
+              company={testimonial.company}
+              imageUrl={testimonial.imageUrl}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
+
 type TestimonialCardProps = {
   quote: string;
   author: string;
   company: string;
   imageUrl: string;
 };
+
 const TestimonialCard = ({
   quote,
   author,
@@ -47,4 +76,5 @@ const TestimonialCard = ({
       </div>
     </div>;
 };
+
 export default TestimonialsSection;
