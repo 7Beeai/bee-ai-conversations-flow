@@ -1,6 +1,5 @@
 
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 
 type DemoButtonProps = {
   children?: React.ReactNode;
@@ -15,10 +14,8 @@ const DemoButton = ({
   size = "default",
   variant = "default"
 }: DemoButtonProps) => {
-  const navigate = useNavigate();
-
   const handleClick = () => {
-    navigate("/chat");
+    window.open("https://wa.me/553184849770", "_blank");
   };
 
   const displayText = children || "👉 Quero uma demonstração agora";
