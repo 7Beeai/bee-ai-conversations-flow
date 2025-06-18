@@ -1,3 +1,4 @@
+
 import DemoButton from "./DemoButton";
 import { Button } from "@/components/ui/button";
 
@@ -8,13 +9,8 @@ const HeroSection = () => {
         <div className="flex flex-col lg:flex-row items-center gap-6 md:gap-8 lg:gap-16">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-3 sm:mb-4 md:mb-6 leading-tight font-extrabold text-center lg:text-left">
-              Sua empresa precisa de{" "}
-              <span className="text-primary block sm:inline">inteligência</span>.
-              <br className="hidden sm:block" />
-              <span className="block sm:inline">
-                Nós entregamos{" "}
-                <span className="text-primary">performance</span>.
-              </span>
+              Sua empresa precisa de <span className="text-primary">inteligência</span>.<br />
+              Nós entregamos <span className="text-primary">performance</span>.
             </h1>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-secondary-text mb-4 sm:mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0 px-4 sm:px-0">
               Conversas humanizadas, com foco em vendas, atendimento e recuperação — adaptadas 100% à necessidade do seu negócio.
