@@ -3,12 +3,14 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 type DemoButtonProps = {
+  children?: React.ReactNode;
   className?: string;
   size?: "default" | "sm" | "lg" | "icon";
   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
 };
 
 const DemoButton = ({ 
+  children = "👉 Quero uma demonstração agora",
   className = "", 
   size = "default",
   variant = "default"
@@ -27,7 +29,7 @@ const DemoButton = ({
       variant={variant}
       className={`font-medium w-full md:w-auto ${className}`}
     >
-      👉 Quero uma demonstração agora
+      {children}
     </Button>
   );
 };
