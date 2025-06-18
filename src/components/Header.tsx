@@ -30,7 +30,7 @@ const Header = () => {
           <img 
             src="/lovable-uploads/cca8416a-fa5d-420a-9868-2d8a9bbb063c.png" 
             alt="7Bee.AI Logo" 
-            className="h-16 md:h-20 lg:h-24"
+            className="h-24 md:h-32 lg:h-40"
           />
         </div>
         
