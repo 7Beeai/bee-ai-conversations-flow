@@ -8,9 +8,9 @@ const Footer = () => {
           <div>
             <div className="mb-6">
               <img 
-                src="/lovable-uploads/fb8d9d63-034c-4af4-bfd4-099e15222bcd.png" 
+                src="/lovable-uploads/47635054-007e-421d-ad0e-7d936dc34211.png" 
                 alt="7Bee.AI Logo" 
-                className="h-12 w-auto"
+                className="h-20 w-auto"
               />
             </div>
             <p className="text-gray-300 mb-6">
