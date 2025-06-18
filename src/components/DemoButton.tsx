@@ -18,11 +18,9 @@ const DemoButton = ({
   const navigate = useNavigate();
 
   const handleClick = () => {
-    // Redirect to chat page for all devices
     navigate("/chat");
   };
 
-  // Ensure text is always displayed, with fallback for mobile
   const displayText = children || "👉 Quero uma demonstração agora";
 
   return (
@@ -30,7 +28,16 @@ const DemoButton = ({
       onClick={handleClick}
       size={size}
       variant={variant}
-      className={`font-medium w-full md:w-auto whitespace-normal ${className}`}
+      className={`
+        font-medium 
+        w-full sm:w-auto 
+        text-sm sm:text-base 
+        px-4 py-2 sm:px-6 sm:py-3 
+        whitespace-normal 
+        min-h-[44px] 
+        leading-normal
+        ${className}
+      `}
     >
       {displayText}
     </Button>
