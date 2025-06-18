@@ -1,5 +1,5 @@
-
 import { Check } from "lucide-react";
+import DemoButton from "./DemoButton";
 
 const SolutionSection = () => {
   return (
@@ -42,6 +42,12 @@ const SolutionSection = () => {
               description="Se conecta com suas ferramentas existentes de forma simples e eficiente." 
               emoji="🔌" 
             />
+          </div>
+
+          <div className="mt-8 sm:mt-12 text-center">
+            <DemoButton className="text-base sm:text-lg py-3 px-5 sm:py-4 sm:px-6 w-full sm:w-auto max-w-md">
+              Conheça nossa tecnologia agora
+            </DemoButton>
           </div>
         </div>
       </div>

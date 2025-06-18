@@ -1,11 +1,10 @@
 
 import { MessageSquare, MessageCircle, Linkedin, Instagram } from "lucide-react";
-import DemoButton from "./DemoButton";
 
 const Footer = () => {
   return <footer className="bg-dark-base text-white pt-16 pb-8">
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-12">
           <div className="flex flex-col">
             <div className="mb-4">
               <img 
@@ -62,14 +61,6 @@ const Footer = () => {
                 <a href="mailto:contato@7bee.ai" className="text-gray-300 hover:text-primary transition-colors">andre@7bee.com</a>
               </li>
             </ul>
-          </div>
-          
-          <div className="lg:col-span-1 flex flex-col">
-            <h3 className="text-lg font-bold mb-6">Demonstração</h3>
-            <p className="text-gray-300 mb-4 flex-1">
-              Veja como a 7Bee.AI pode transformar seu negócio hoje.
-            </p>
-            <DemoButton size="sm" variant="outline" className="w-full justify-center mt-auto" />
           </div>
         </div>
         
