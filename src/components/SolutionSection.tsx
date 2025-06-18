@@ -7,36 +7,40 @@ const SolutionSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-block mb-6 px-6 py-3 bg-primary/10 text-primary rounded-full font-medium text-lg">
-            Solução inteligente
+            🚀 Nossa solução: IA com comportamento humano e foco em resultados
           </div>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
-            IA com comportamento humano, sem scripts engessados
+            A 7Bee.AI é muito mais que um chatbot
           </h2>
           
           <p className="text-secondary-text text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            A 7Bee.AI vai além dos chatbots tradicionais. Nossa tecnologia foi treinada por empresários para entender o contexto do seu negócio e se adaptar às nuances de cada conversa.
+            É uma agente de IA treinada com dados reais de empresas para se adaptar, aprender e converter mais.
           </p>
           
           <div className="grid md:grid-cols-2 gap-8 mt-16">
             <SolutionFeature 
-              title="Conversas Naturais e Personalizadas" 
+              title="Conversas naturais e personalizadas" 
               description="Interações que parecem realmente humanas, adaptativas ao contexto e às necessidades do cliente."
+              emoji="🧠"
             />
             
             <SolutionFeature 
-              title="Foco em Resultados" 
+              title="Qualificação automática de leads e oportunidades" 
               description="Algoritmos otimizados para qualificar, engajar e converter, seguindo sua estratégia de vendas."
+              emoji="🎯"
             />
             
             <SolutionFeature 
-              title="Escalabilidade Instantânea" 
-              description="Atenda centenas ou milhares de clientes simultaneamente, sem perder qualidade."
+              title="Escalabilidade instantânea sem perder qualidade" 
+              description="Atenda centenas ou milhares de clientes simultaneamente, mantendo o padrão de excelência."
+              emoji="⚡"
             />
             
             <SolutionFeature 
-              title="Integração Fácil" 
-              description="Se conecta com suas ferramentas existentes: CRM, WhatsApp, site e muito mais."
+              title="Integração fácil com WhatsApp, CRM, site e muito mais" 
+              description="Se conecta com suas ferramentas existentes de forma simples e eficiente."
+              emoji="🔌"
             />
           </div>
         </div>
@@ -48,15 +52,16 @@ const SolutionSection = () => {
 type SolutionFeatureProps = {
   title: string;
   description: string;
+  emoji: string;
 };
 
-const SolutionFeature = ({ title, description }: SolutionFeatureProps) => {
+const SolutionFeature = ({ title, description, emoji }: SolutionFeatureProps) => {
   return (
     <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow text-left">
       <div className="flex gap-4">
         <div className="flex-shrink-0 mt-1">
-          <div className="bg-primary rounded-full p-2">
-            <Check className="h-6 w-6 text-white" />
+          <div className="text-4xl">
+            {emoji}
           </div>
         </div>
         <div>
