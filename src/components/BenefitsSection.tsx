@@ -6,7 +6,7 @@ const BenefitsSection = () => {
     <section className="section bg-dark-base text-white" id="beneficios">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="mb-4 text-white">Por que empresas estão escolhendo a 7Bee.AI?</h2>
+          <h2 className="mb-4 text-white">📈 Por que empresas estão escolhendo a 7Bee.AI?</h2>
           <p className="text-gray-300 text-xl max-w-3xl mx-auto">
             Impacto mensurável em seu negócio desde o primeiro dia
           </p>
@@ -87,7 +87,7 @@ const BenefitCard = ({ title, description, emoji }: BenefitCardProps) => {
     <div className="bg-dark-base/50 border border-gray-700 p-8 rounded-xl hover:border-primary/50 transition-colors">
       <div className="flex items-start gap-4 mb-4">
         <div className="flex-shrink-0 mt-1">
-          <div className="bg-primary rounded-full p-2 flex items-center justify-center w-10 h-10">
+          <div className="flex items-center justify-center w-10 h-10">
             <span className="text-2xl">{emoji}</span>
           </div>
         </div>
