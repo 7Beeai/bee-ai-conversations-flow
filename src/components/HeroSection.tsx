@@ -1,10 +1,7 @@
-
 import DemoButton from "./DemoButton";
 import { Button } from "@/components/ui/button";
-
 const HeroSection = () => {
-  return (
-    <section className="pt-8 md:pt-24 lg:pt-32 pb-8 md:pb-24 bg-neutral-bg">
+  return <section className="pt-8 md:pt-24 lg:pt-32 pb-8 md:pb-24 bg-neutral-bg">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
@@ -12,9 +9,7 @@ const HeroSection = () => {
               Sua empresa precisa de <span className="text-primary">inteligência</span>.<br />
               Nós entregamos <span className="text-primary">performance</span>.
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-secondary-text mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0">
-              Conversas naturais, personalizadas, voltadas para resultado — 100% adaptadas ao seu negócio.
-            </p>
+            <p className="text-lg sm:text-xl md:text-2xl text-secondary-text mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0">Conversas humanizadas, com foco em vendas, atendimento e recuperação — adaptadas 100% à necessidade do seu negócio.</p>
             <div className="hidden md:flex justify-center lg:justify-start">
               <DemoButton className="text-lg py-4 px-6 md:py-6 md:px-8" />
             </div>
@@ -35,8 +30,6 @@ const HeroSection = () => {
           <DemoButton className="text-lg py-4 px-6 w-full" />
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
