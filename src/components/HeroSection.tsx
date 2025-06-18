@@ -20,12 +20,13 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="w-full lg:w-1/2 mt-2 sm:mt-4 lg:mt-0 px-4 sm:px-0">
-            <div className="relative aspect-video rounded-lg shadow-xl overflow-hidden">
+            <div className="relative aspect-video rounded-lg shadow-xl overflow-hidden" style={{padding: '56.25% 0 0 0', position: 'relative'}}>
               <iframe
-                src="https://player.vimeo.com/video/1094542788?h=a2db4ef548&autoplay=1&muted=1&loop=1&autopause=0"
-                title="7Bee.AI em ação"
-                className="w-full h-full"
-                allow="autoplay; fullscreen; picture-in-picture"
+                src="https://player.vimeo.com/video/1094542788?h=a2db4ef548&badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+                title="7Bee AI"
                 allowFullScreen
               />
             </div>
