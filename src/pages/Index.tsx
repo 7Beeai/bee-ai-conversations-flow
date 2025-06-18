@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
@@ -26,7 +27,7 @@ const Index = () => {
         if (!targetElement) return;
         
         window.scrollTo({
-          top: targetElement.offsetTop - 100,
+          top: targetElement.offsetTop - 120,
           behavior: 'smooth'
         });
       });
@@ -36,7 +37,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-neutral-bg">
       <Header />
-      <main>
+      <main className="pt-20 md:pt-24 lg:pt-28">
         <HeroSection />
         <ProblemSection />
         <SolutionSection />
