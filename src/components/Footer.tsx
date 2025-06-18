@@ -1,4 +1,3 @@
-
 import { MessageSquare, MessageCircle, Linkedin, Instagram } from "lucide-react";
 import DemoButton from "./DemoButton";
 
@@ -7,7 +6,13 @@ const Footer = () => {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <div className="text-3xl font-bold mb-6">7Bee<span className="text-primary">.AI</span></div>
+            <div className="mb-6">
+              <img 
+                src="/lovable-uploads/fb8d9d63-034c-4af4-bfd4-099e15222bcd.png" 
+                alt="7Bee.AI Logo" 
+                className="h-12 w-auto"
+              />
+            </div>
             <p className="text-gray-300 mb-6">
               Inteligência Artificial com comportamento humano para vendas, cobranças e atendimento.
             </p>
