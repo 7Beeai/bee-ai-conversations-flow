@@ -24,14 +24,14 @@ const TestimonialsSection = () => {
   return (
     <section className="section bg-neutral-bg">
       <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="mb-4">O que nossos clientes dizem</h2>
-          <p className="text-secondary-text text-xl max-w-3xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="mb-3 sm:mb-4 text-2xl sm:text-3xl md:text-4xl px-4 sm:px-0">O que nossos clientes dizem</h2>
+          <p className="text-secondary-text text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4 sm:px-0">
             Depoimentos reais de empresas que transformaram seu atendimento
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 px-4 sm:px-0">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={index}
@@ -56,12 +56,12 @@ type TestimonialCardProps = {
 
 const TestimonialCard = ({ quote, author, company, imageUrl }: TestimonialCardProps) => {
   return (
-    <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
-      <div className="flex items-center mb-6">
+    <div className="bg-white p-4 sm:p-6 md:p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+      <div className="flex items-center mb-4 sm:mb-6">
         {[1, 2, 3, 4, 5].map(star => (
           <svg 
             key={star} 
-            className="w-5 h-5 text-primary" 
+            className="w-4 h-4 sm:w-5 sm:h-5 text-primary" 
             fill="currentColor" 
             viewBox="0 0 20 20" 
             xmlns="http://www.w3.org/2000/svg"
@@ -71,13 +71,13 @@ const TestimonialCard = ({ quote, author, company, imageUrl }: TestimonialCardPr
         ))}
       </div>
       
-      <blockquote className="mb-6 text-lg">"{quote}"</blockquote>
+      <blockquote className="mb-4 sm:mb-6 text-base sm:text-lg">"{quote}"</blockquote>
       
       <div className="flex items-center">
-        <img src={imageUrl} alt={author} className="w-12 h-12 rounded-full mr-4" />
+        <img src={imageUrl} alt={author} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full mr-3 sm:mr-4" />
         <div>
-          <p className="font-bold">{author}</p>
-          <p className="text-secondary-text text-sm">{company}</p>
+          <p className="font-bold text-sm sm:text-base">{author}</p>
+          <p className="text-secondary-text text-xs sm:text-sm">{company}</p>
         </div>
       </div>
     </div>
