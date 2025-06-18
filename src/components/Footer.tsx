@@ -1,3 +1,4 @@
+
 import { MessageSquare, MessageCircle, Linkedin, Instagram } from "lucide-react";
 import DemoButton from "./DemoButton";
 
@@ -10,7 +11,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/47635054-007e-421d-ad0e-7d936dc34211.png" 
                 alt="7Bee.AI Logo" 
-                className="h-20 w-auto"
+                className="h-40 w-auto"
               />
             </div>
             <p className="text-gray-300 mb-6">
