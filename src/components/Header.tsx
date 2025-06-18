@@ -26,10 +26,12 @@ const Header = () => {
       isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <div className="flex-1 md:flex-none"></div>
-        
         <div className="flex items-center">
-          <span className="text-2xl md:text-3xl font-bold">7Bee<span className="text-primary">.AI</span></span>
+          <img 
+            src="/lovable-uploads/cca8416a-fa5d-420a-9868-2d8a9bbb063c.png" 
+            alt="7Bee.AI Logo" 
+            className="h-8 md:h-10"
+          />
         </div>
         
         {/* Desktop Navigation */}
