@@ -7,6 +7,7 @@ import ChatHeader from "@/components/chat/ChatHeader";
 import ChatMessages from "@/components/chat/ChatMessages";
 import ChatInputForm from "@/components/chat/ChatInputForm";
 import { sendChatMessage } from "@/services/chatService";
+import { validateMessage, checkRateLimit } from "@/utils/security";
 
 const Chat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -42,6 +43,28 @@ const Chat = () => {
     
     if (!inputText.trim()) return;
     
+    // Validate message
+    const validation = validateMessage(inputText);
+    if (!validation.isValid) {
+      toast({
+        title: "Erro de validação",
+        description: validation.error,
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Check rate limiting
+    const rateLimitCheck = checkRateLimit();
+    if (!rateLimitCheck.allowed) {
+      toast({
+        title: "Muitas mensagens",
+        description: rateLimitCheck.error,
+        variant: "destructive",
+      });
+      return;
+    }
+    
     const userMessage: Message = {
       id: uuidv4(),
       text: inputText,
@@ -69,9 +92,12 @@ const Chat = () => {
     } catch (error) {
       console.error("Error sending message:", error);
       setIsLoading(false);
+      
+      const errorMessage = error instanceof Error ? error.message : "Erro desconhecido";
+      
       toast({
         title: "Erro ao enviar mensagem",
-        description: "Não foi possível enviar sua mensagem. Por favor, tente novamente.",
+        description: errorMessage,
         variant: "destructive",
       });
       
