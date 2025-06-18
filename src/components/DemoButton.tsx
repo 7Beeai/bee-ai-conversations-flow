@@ -10,7 +10,7 @@ type DemoButtonProps = {
 };
 
 const DemoButton = ({ 
-  children = "👉 Quero uma demonstração agora",
+  children,
   className = "", 
   size = "default",
   variant = "default"
@@ -29,7 +29,7 @@ const DemoButton = ({
       variant={variant}
       className={`font-medium w-full md:w-auto ${className}`}
     >
-      {children}
+      {children || "👉 Quero uma demonstração agora"}
     </Button>
   );
 };
