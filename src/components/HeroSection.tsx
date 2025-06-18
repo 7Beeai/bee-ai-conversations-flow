@@ -1,3 +1,4 @@
+
 import DemoButton from "./DemoButton";
 import { Button } from "@/components/ui/button";
 
@@ -8,7 +9,8 @@ const HeroSection = () => {
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
           <div className="w-full lg:w-1/2 text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 leading-tight font-extrabold text-center lg:text-left lg:text-6xl">
-              Sua empresa precisa de <span className="text-primary">inteligência</span>. Nós entregamos <span className="text-primary">performance</span>.
+              Sua empresa precisa de <span className="text-primary">inteligência</span>.<br />
+              Nós entregamos <span className="text-primary">performance</span>.
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-secondary-text mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0">
               Conversas naturais, personalizadas, voltadas para resultado — 100% adaptadas ao seu negócio.
