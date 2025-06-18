@@ -7,7 +7,7 @@ const BenefitsSection = () => {
     <section className="section bg-dark-base text-white" id="beneficios">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="mb-4 text-white">Por que escolher a 7Bee.AI?</h2>
+          <h2 className="mb-4 text-white">📈 Por que empresas estão escolhendo a 7Bee.AI?</h2>
           <p className="text-gray-300 text-xl max-w-3xl mx-auto">
             Impacto mensurável em seu negócio desde o primeiro dia
           </p>
@@ -15,19 +15,19 @@ const BenefitsSection = () => {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <BenefitCard 
-            title="Aumente suas vendas"
+            title="🛍 +35% nas conversões nos 3 primeiros meses"
             description="Média de 35% de aumento em conversões nos primeiros 3 meses de implementação."
             icon={<TrendingUp className="h-5 w-5 text-white" />}
           />
           
           <BenefitCard 
-            title="Reduza custos operacionais"
+            title="💰 -60% nos custos operacionais"
             description="Economia de até 60% nos custos de atendimento e vendas em comparação com equipes tradicionais."
             icon={<Scale className="h-5 w-5 text-white" />}
           />
           
           <BenefitCard 
-            title="Atendimento 24/7"
+            title="⏱ Atendimento imediato, 24 horas por dia"
             description="Disponibilidade constante sem custos adicionais de hora extra ou plantões."
             icon={<Clock className="h-5 w-5 text-white" />}
           />
@@ -39,7 +39,7 @@ const BenefitsSection = () => {
           />
           
           <BenefitCard 
-            title="Experiência consistente"
+            title="🔄 Qualidade padronizada, sem depender de quem atende"
             description="Qualidade padronizada em todas as interações, independente do volume ou horário."
             icon={<UserCheck className="h-5 w-5 text-white" />}
           />
@@ -51,19 +51,19 @@ const BenefitsSection = () => {
           />
           
           <BenefitCard 
-            title="Insights valiosos"
+            title="🔍 Relatórios inteligentes com dados de comportamento do cliente"
             description="Análise completa de conversas e comportamento dos clientes para otimizar estratégias."
             icon={<Database className="h-5 w-5 text-white" />}
           />
           
           <BenefitCard 
-            title="Integração completa"
+            title="🧩 Integração completa com suas ferramentas"
             description="Conexão com sistemas CRM, ERP, WhatsApp Business e outras plataformas que você já utiliza."
             icon={<CalendarClock className="h-5 w-5 text-white" />}
           />
           
           <BenefitCard 
-            title="Implementação rápida"
+            title="⚙️ Implementação em até 15 dias"
             description="Em produção em até 15 dias, sem necessidade de mudanças em sua infraestrutura atual."
             icon={<Rocket className="h-5 w-5 text-white" />}
           />
