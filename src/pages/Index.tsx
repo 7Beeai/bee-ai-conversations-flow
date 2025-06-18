@@ -27,7 +27,7 @@ const Index = () => {
         if (!targetElement) return;
         
         window.scrollTo({
-          top: targetElement.offsetTop - 80,
+          top: targetElement.offsetTop - 60,
           behavior: 'smooth'
         });
       });
@@ -37,7 +37,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-neutral-bg">
       <Header />
-      <main className="pt-12 md:pt-16 lg:pt-20">
+      <main className="pt-8 md:pt-10 lg:pt-12">
         <HeroSection />
         <ProblemSection />
         <SolutionSection />
