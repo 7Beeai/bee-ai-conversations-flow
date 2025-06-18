@@ -6,8 +6,8 @@ const Footer = () => {
   return <footer className="bg-dark-base text-white pt-16 pb-8">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <div>
-            <div className="mb-6">
+          <div className="flex flex-col">
+            <div className="mb-4">
               <img 
                 src="/lovable-uploads/47635054-007e-421d-ad0e-7d936dc34211.png" 
                 alt="7Bee.AI Logo" 
@@ -17,7 +17,7 @@ const Footer = () => {
             <p className="text-gray-300 mb-6">
               Inteligência Artificial com comportamento humano para vendas, cobranças e atendimento.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mt-auto">
               <a href="https://www.linkedin.com/company/7bee-ai" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-primary transition-colors">
                 <span className="sr-only">LinkedIn</span>
                 <Linkedin className="w-6 h-6" />
@@ -29,9 +29,9 @@ const Footer = () => {
             </div>
           </div>
           
-          <div>
+          <div className="flex flex-col">
             <h3 className="text-lg font-bold mb-6">Soluções</h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 flex-1">
               <li>
                 <a href="#" className="text-gray-300 hover:text-primary transition-colors">Atendimento ao Cliente</a>
               </li>
@@ -50,9 +50,9 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div>
+          <div className="flex flex-col">
             <h3 className="text-lg font-bold mb-6">Contato</h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 flex-1">
               <li className="flex items-center">
                 <MessageCircle className="h-5 w-5 mr-3 text-primary" />
                 <a href="https://wa.me/5531984849770?text=Olá!%20Gostaria%20de%20conhecer%20mais%20sobre%20a%207Bee.AI" className="text-gray-300 hover:text-primary transition-colors">WhatsApp</a>
@@ -64,12 +64,12 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 flex flex-col">
             <h3 className="text-lg font-bold mb-6">Demonstração</h3>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300 mb-4 flex-1">
               Veja como a 7Bee.AI pode transformar seu negócio hoje.
             </p>
-            <DemoButton size="sm" variant="outline" className="w-full justify-center" />
+            <DemoButton size="sm" variant="outline" className="w-full justify-center mt-auto" />
           </div>
         </div>
         
