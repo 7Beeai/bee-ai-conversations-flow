@@ -21,13 +21,13 @@ const HeroSection = () => {
           </div>
           <div className="w-full lg:w-1/2 mt-2 sm:mt-4 lg:mt-0 px-4 sm:px-0">
             <div className="relative aspect-video rounded-lg shadow-xl overflow-hidden">
-              {/* Placeholder for video - In production this would be replaced with actual video */}
-              <div className="absolute inset-0 bg-dark-base/10 flex items-center justify-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-primary rounded-full flex items-center justify-center cursor-pointer hover:bg-primary/90 transition-colors">
-                  <div className="w-0 h-0 border-t-[8px] border-b-[8px] border-l-[14px] sm:border-t-[10px] sm:border-b-[10px] sm:border-l-[18px] border-transparent border-l-white ml-1 sm:ml-2"></div>
-                </div>
-              </div>
-              <img src="https://source.unsplash.com/random/800x450/?business,presentation" alt="7Bee.AI em ação" className="w-full h-full object-cover" />
+              <iframe
+                src="https://www.youtube.com/embed/3zZKyQGpIUM"
+                title="7Bee.AI em ação"
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>
