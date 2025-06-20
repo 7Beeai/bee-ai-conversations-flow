@@ -14,8 +14,18 @@ const DemoButton = ({
   size = "default",
   variant = "default"
 }: DemoButtonProps) => {
+  const isMobile = () => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+  };
+
   const handleClick = () => {
-    window.open("https://wa.me/553184849770", "_blank");
+    if (isMobile()) {
+      // Mobile: direciona para WhatsApp
+      window.open("https://wa.me/553184849770", "_blank");
+    } else {
+      // Desktop/Tablet: direciona para página de chat
+      window.location.href = "/chat";
+    }
   };
 
   const displayText = children || "👉 Quero uma demonstração agora";
