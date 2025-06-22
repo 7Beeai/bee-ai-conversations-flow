@@ -28,32 +28,7 @@ add_action('after_setup_theme', 'sevenbee_setup');
 
 // Enqueue styles and scripts
 function sevenbee_scripts() {
-    wp_enqueue_style('sevenbee-style', get_stylesheet_uri());
-    
-    // Add custom CSS for better mobile responsiveness
-    wp_add_inline_style('sevenbee-style', '
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr !important;
-                text-align: center;
-            }
-            .hero-text h1 {
-                font-size: 2rem !important;
-            }
-            .nav-menu {
-                display: none !important;
-            }
-            .mobile-menu-toggle {
-                display: block !important;
-            }
-            .cards-grid {
-                grid-template-columns: 1fr !important;
-            }
-            .steps-grid {
-                grid-template-columns: 1fr !important;
-            }
-        }
-    ');
+    wp_enqueue_style('sevenbee-style', get_stylesheet_uri(), array(), '1.0.0');
 }
 add_action('wp_enqueue_scripts', 'sevenbee_scripts');
 
@@ -78,56 +53,6 @@ function sevenbee_remove_admin_bar() {
     }
 }
 
-// Add viewport meta tag
-function sevenbee_viewport_meta() {
-    echo '<meta name="viewport" content="width=device-width, initial-scale=1">';
-}
-add_action('wp_head', 'sevenbee_viewport_meta');
-
-// Custom excerpt length
-function sevenbee_excerpt_length($length) {
-    return 30;
-}
-add_filter('excerpt_length', 'sevenbee_excerpt_length');
-
-// Custom excerpt more
-function sevenbee_excerpt_more($more) {
-    return '...';
-}
-add_filter('excerpt_more', 'sevenbee_excerpt_more');
-
-// Add custom CSS classes to body
-function sevenbee_body_classes($classes) {
-    if (is_front_page()) {
-        $classes[] = 'home-page';
-    }
-    return $classes;
-}
-add_filter('body_class', 'sevenbee_body_classes');
-
-// Security: Remove WordPress version
-remove_action('wp_head', 'wp_generator');
-
-// Optimize WordPress
-function sevenbee_optimize() {
-    // Remove unnecessary meta tags
-    remove_action('wp_head', 'rsd_link');
-    remove_action('wp_head', 'wlwmanifest_link');
-    remove_action('wp_head', 'wp_shortlink_wp_head');
-    
-    // Remove emoji scripts
-    remove_action('wp_head', 'print_emoji_detection_script', 7);
-    remove_action('wp_print_styles', 'print_emoji_styles');
-}
-add_action('init', 'sevenbee_optimize');
-
-// Custom post types (if needed)
-function sevenbee_custom_post_types() {
-    // You can add custom post types here if needed
-    // Example: testimonials, case studies, etc.
-}
-add_action('init', 'sevenbee_custom_post_types');
-
 // Theme customizer
 function sevenbee_customize_register($wp_customize) {
     // WhatsApp Number
@@ -139,6 +64,7 @@ function sevenbee_customize_register($wp_customize) {
     $wp_customize->add_setting('whatsapp_number', array(
         'default'   => '553184849770',
         'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_text_field',
     ));
     
     $wp_customize->add_control('whatsapp_number', array(
@@ -151,6 +77,7 @@ function sevenbee_customize_register($wp_customize) {
     $wp_customize->add_setting('contact_email', array(
         'default'   => 'andre@7bee.com',
         'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_email',
     ));
     
     $wp_customize->add_control('contact_email', array(
@@ -171,4 +98,81 @@ function sevenbee_get_whatsapp_url() {
 function sevenbee_get_contact_email() {
     return get_theme_mod('contact_email', 'andre@7bee.com');
 }
+
+// Security: Remove WordPress version
+remove_action('wp_head', 'wp_generator');
+
+// Optimize WordPress
+function sevenbee_optimize() {
+    // Remove unnecessary meta tags
+    remove_action('wp_head', 'rsd_link');
+    remove_action('wp_head', 'wlwmanifest_link');
+    remove_action('wp_head', 'wp_shortlink_wp_head');
+    
+    // Remove emoji scripts
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('wp_print_styles', 'print_emoji_styles');
+}
+add_action('init', 'sevenbee_optimize');
+
+// Add /chat URL rewrite rule
+function sevenbee_add_chat_rewrite() {
+    add_rewrite_rule('^chat/?$', 'index.php?chat_page=1', 'top');
+}
+add_action('init', 'sevenbee_add_chat_rewrite');
+
+// Add query vars
+function sevenbee_query_vars($vars) {
+    $vars[] = 'chat_page';
+    return $vars;
+}
+add_filter('query_vars', 'sevenbee_query_vars');
+
+// Template redirect for chat page
+function sevenbee_template_redirect() {
+    if (get_query_var('chat_page')) {
+        include(get_template_directory() . '/page-chat.php');
+        exit;
+    }
+}
+add_action('template_redirect', 'sevenbee_template_redirect');
+
+// Flush rewrite rules on theme activation
+function sevenbee_activation() {
+    sevenbee_add_chat_rewrite();
+    flush_rewrite_rules();
+}
+add_action('after_switch_theme', 'sevenbee_activation');
+
+// Create a virtual page for chat in admin
+function sevenbee_admin_init() {
+    if (is_admin()) {
+        // Create virtual page entry for chat
+        $chat_page = array(
+            'post_title' => 'Chat',
+            'post_name' => 'chat',
+            'post_status' => 'publish',
+            'post_type' => 'page'
+        );
+        
+        // Check if chat page doesn't exist
+        $existing_page = get_page_by_path('chat');
+        if (!$existing_page) {
+            wp_insert_post($chat_page);
+        }
+    }
+}
+add_action('admin_init', 'sevenbee_admin_init');
+
+// Ensure proper page template for chat
+function sevenbee_page_template($template) {
+    if (is_page('chat')) {
+        $new_template = locate_template(array('page-chat.php'));
+        if ('' != $new_template) {
+            return $new_template;
+        }
+    }
+    return $template;
+}
+add_filter('page_template', 'sevenbee_page_template');
 ?>
