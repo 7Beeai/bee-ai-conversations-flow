@@ -19,29 +19,51 @@ const CalendlyEmbed: FC<CalendlyEmbedProps> = ({ url }) => {
   // Extract Calendly username/event from URL and fix encoding
   const getCalendlyEmbedUrl = (calendlyUrl: string) => {
     try {
-      const urlObj = new URL(calendlyUrl);
+      console.log("URL original:", calendlyUrl);
       
-      // Fix encoding issues - create new URL with properly decoded parameters
-      const newParams = new URLSearchParams();
+      const urlObj = new URL(calendlyUrl);
+      console.log("Parâmetros originais:", Array.from(urlObj.searchParams.entries()));
+      
+      // Create completely new URL with manually decoded parameters
+      const baseUrl = `${urlObj.protocol}//${urlObj.host}${urlObj.pathname}`;
+      const newUrl = new URL(baseUrl);
       
       urlObj.searchParams.forEach((value, key) => {
-        // Decode the value properly
-        const decodedValue = decodeURIComponent(value);
-        newParams.set(key, decodedValue);
-      });
-      
-      // Clear existing params and set the decoded ones
-      urlObj.search = '';
-      newParams.forEach((value, key) => {
-        urlObj.searchParams.set(key, value);
+        // Multiple decode attempts to handle different encoding scenarios
+        let decodedValue = value;
+        
+        // First, try standard decodeURIComponent
+        try {
+          decodedValue = decodeURIComponent(value);
+        } catch (e) {
+          console.warn("Erro no primeiro decode:", e);
+        }
+        
+        // Then, manually replace + with spaces (common URL encoding)
+        decodedValue = decodedValue.replace(/\+/g, ' ');
+        
+        // Try another decode in case there are still encoded chars
+        try {
+          decodedValue = decodeURIComponent(decodedValue);
+        } catch (e) {
+          // Ignore if already decoded
+        }
+        
+        console.log(`Parâmetro ${key}: "${value}" -> "${decodedValue}"`);
+        newUrl.searchParams.set(key, decodedValue);
       });
       
       // Add embed-specific parameters
-      urlObj.searchParams.set('embed_domain', window.location.hostname);
-      urlObj.searchParams.set('embed_type', 'Inline');
+      newUrl.searchParams.set('embed_domain', window.location.hostname);
+      newUrl.searchParams.set('embed_type', 'Inline');
       
-      return urlObj.toString();
-    } catch {
+      const finalUrl = newUrl.toString();
+      console.log("URL final para embed:", finalUrl);
+      console.log("Parâmetros finais:", Array.from(newUrl.searchParams.entries()));
+      
+      return finalUrl;
+    } catch (error) {
+      console.error("Erro ao processar URL do Calendly:", error);
       return '';
     }
   };
