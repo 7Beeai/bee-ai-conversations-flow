@@ -31,7 +31,7 @@ const Chat = () => {
     setMessages([
       {
         id: uuidv4(),
-        text: "Olá, eu sou o Lucas Montivani, assistente IA da 7Bee! Como posso ajudar você hoje?",
+        text: "Olá, eu sou o Lucas Montivani, assistente IA da 7Bee! Como você prefere ser chamado?",
         sender: "bot",
         timestamp: new Date(),
       },
