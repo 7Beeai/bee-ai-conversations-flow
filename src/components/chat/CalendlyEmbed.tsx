@@ -16,13 +16,22 @@ const CalendlyEmbed: FC<CalendlyEmbedProps> = ({ url }) => {
     }
   }, []);
 
-  // Extract Calendly username/event from URL
+  // Extract Calendly username/event from URL and fix encoding
   const getCalendlyEmbedUrl = (calendlyUrl: string) => {
     try {
       const urlObj = new URL(calendlyUrl);
-      // Adiciona parâmetros específicos para embed
+      
+      // Fix encoding issues - decode and re-encode properly
+      urlObj.searchParams.forEach((value, key) => {
+        // Decode the value and set it back
+        const decodedValue = decodeURIComponent(value);
+        urlObj.searchParams.set(key, decodedValue);
+      });
+      
+      // Add embed-specific parameters
       urlObj.searchParams.set('embed_domain', window.location.hostname);
       urlObj.searchParams.set('embed_type', 'Inline');
+      
       return urlObj.toString();
     } catch {
       return '';
