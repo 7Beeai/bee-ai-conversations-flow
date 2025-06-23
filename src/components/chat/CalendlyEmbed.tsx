@@ -21,11 +21,19 @@ const CalendlyEmbed: FC<CalendlyEmbedProps> = ({ url }) => {
     try {
       const urlObj = new URL(calendlyUrl);
       
-      // Fix encoding issues - decode and re-encode properly
+      // Fix encoding issues - create new URL with properly decoded parameters
+      const newParams = new URLSearchParams();
+      
       urlObj.searchParams.forEach((value, key) => {
-        // Decode the value and set it back
+        // Decode the value properly
         const decodedValue = decodeURIComponent(value);
-        urlObj.searchParams.set(key, decodedValue);
+        newParams.set(key, decodedValue);
+      });
+      
+      // Clear existing params and set the decoded ones
+      urlObj.search = '';
+      newParams.forEach((value, key) => {
+        urlObj.searchParams.set(key, value);
       });
       
       // Add embed-specific parameters
