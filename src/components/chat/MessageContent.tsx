@@ -8,37 +8,56 @@ interface MessageContentProps {
 }
 
 const MessageContent: FC<MessageContentProps> = ({ text }) => {
-  // Regex aprimorado para detectar URLs do Calendly com todos os parâmetros, incluindo caracteres especiais
-  const calendlyRegex = /https:\/\/calendly\.com\/[^\s\n<>"']+/g;
+  // Regex mais específico para URLs do Calendly que captura até quebra de linha ou espaço
+  const calendlyRegex = /(https:\/\/calendly\.com\/[^\s\n]+)/g;
   
   // Check if message contains Calendly URL
   const calendlyMatches = text.match(calendlyRegex);
   
   if (calendlyMatches && calendlyMatches.length > 0) {
     // Split text by Calendly URLs and render components
-    const parts = text.split(calendlyRegex);
+    let remainingText = text;
     const result = [];
+    let key = 0;
     
-    for (let i = 0; i < parts.length; i++) {
-      // Add text part if not empty
-      if (parts[i].trim()) {
-        const sanitizedText = DOMPurify.sanitize(parts[i].trim(), { 
+    calendlyMatches.forEach((url) => {
+      const parts = remainingText.split(url);
+      
+      // Add text before URL if not empty
+      if (parts[0].trim()) {
+        const sanitizedText = DOMPurify.sanitize(parts[0].trim(), { 
           ALLOWED_TAGS: [], 
           ALLOWED_ATTR: [] 
         });
         result.push(
-          <span key={`text-${i}`} className="whitespace-pre-line">
+          <span key={`text-${key}`} className="whitespace-pre-line">
             {sanitizedText}
           </span>
         );
+        key++;
       }
       
-      // Add Calendly embed if there's a corresponding match
-      if (calendlyMatches[i]) {
-        result.push(
-          <CalendlyEmbed key={`calendly-${i}`} url={calendlyMatches[i]} />
-        );
-      }
+      // Add Calendly embed
+      result.push(
+        <CalendlyEmbed key={`calendly-${key}`} url={url} />
+      );
+      key++;
+      
+      // Update remaining text to process next parts
+      remainingText = parts.slice(1).join(url);
+    });
+    
+    // Add any remaining text after the last URL
+    if (remainingText.trim()) {
+      const sanitizedText = DOMPurify.sanitize(remainingText.trim(), { 
+        ALLOWED_TAGS: [], 
+        ALLOWED_ATTR: [] 
+      });
+      result.push(
+        <span key={`text-${key}`} className="whitespace-pre-line">
+          {sanitizedText}
+        </span>
+      );
     }
     
     return <div className="space-y-2">{result}</div>;
