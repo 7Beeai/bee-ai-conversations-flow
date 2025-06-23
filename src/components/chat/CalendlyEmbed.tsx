@@ -1,4 +1,3 @@
-
 import { FC, useEffect } from "react";
 
 interface CalendlyEmbedProps {
@@ -7,7 +6,6 @@ interface CalendlyEmbedProps {
 
 const CalendlyEmbed: FC<CalendlyEmbedProps> = ({ url }) => {
   useEffect(() => {
-    // Load Calendly widget script if not already loaded
     if (!document.querySelector('script[src*="calendly.com/assets/external/widget.js"]')) {
       const script = document.createElement('script');
       script.src = 'https://assets.calendly.com/assets/external/widget.js';
@@ -16,54 +14,30 @@ const CalendlyEmbed: FC<CalendlyEmbedProps> = ({ url }) => {
     }
   }, []);
 
-  // Extract Calendly username/event from URL and fix encoding
   const getCalendlyEmbedUrl = (calendlyUrl: string) => {
     try {
-      console.log("URL original:", calendlyUrl);
-      
       const urlObj = new URL(calendlyUrl);
-      console.log("Parâmetros originais:", Array.from(urlObj.searchParams.entries()));
-      
-      // Create completely new URL with manually decoded parameters
       const baseUrl = `${urlObj.protocol}//${urlObj.host}${urlObj.pathname}`;
-      const newUrl = new URL(baseUrl);
-      
+      const params = new URLSearchParams();
+
+      // Reconstrói cada parâmetro decodificando + e %20 apropriadamente
       urlObj.searchParams.forEach((value, key) => {
-        // Multiple decode attempts to handle different encoding scenarios
-        let decodedValue = value;
-        
-        // First, try standard decodeURIComponent
-        try {
-          decodedValue = decodeURIComponent(value);
-        } catch (e) {
-          console.warn("Erro no primeiro decode:", e);
-        }
-        
-        // Then, manually replace + with spaces (common URL encoding)
-        decodedValue = decodedValue.replace(/\+/g, ' ');
-        
-        // Try another decode in case there are still encoded chars
-        try {
-          decodedValue = decodeURIComponent(decodedValue);
-        } catch (e) {
-          // Ignore if already decoded
-        }
-        
-        console.log(`Parâmetro ${key}: "${value}" -> "${decodedValue}"`);
-        newUrl.searchParams.set(key, decodedValue);
+        let decoded = decodeURIComponent(value.replace(/\+/g, ' '));
+        params.set(key, decoded);
       });
-      
-      // Add embed-specific parameters
-      newUrl.searchParams.set('embed_domain', window.location.hostname);
-      newUrl.searchParams.set('embed_type', 'Inline');
-      
-      const finalUrl = newUrl.toString();
-      console.log("URL final para embed:", finalUrl);
-      console.log("Parâmetros finais:", Array.from(newUrl.searchParams.entries()));
-      
-      return finalUrl;
-    } catch (error) {
-      console.error("Erro ao processar URL do Calendly:", error);
+
+      // Parâmetros do widget
+      params.set('embed_domain', window.location.hostname);
+      params.set('embed_type', 'Inline');
+
+      // Construção manual da query para garantir encoding com %20
+      const manualQuery = Array.from(params.entries())
+        .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
+        .join('&');
+
+      return `${baseUrl}?${manualQuery}`;
+    } catch (err) {
+      console.error("Erro ao gerar URL Calendly:", err);
       return '';
     }
   };
@@ -73,8 +47,8 @@ const CalendlyEmbed: FC<CalendlyEmbedProps> = ({ url }) => {
   if (!embedUrl) {
     return (
       <a 
-        href={url} 
-        target="_blank" 
+        href={url}
+        target="_blank"
         rel="noopener noreferrer"
         className="text-primary hover:underline"
       >
@@ -89,8 +63,8 @@ const CalendlyEmbed: FC<CalendlyEmbedProps> = ({ url }) => {
         <div className="flex items-center justify-between mb-3">
           <h4 className="font-semibold text-gray-800">Agendar Reunião</h4>
           <a 
-            href={url} 
-            target="_blank" 
+            href={url}
+            target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-primary hover:underline"
           >
@@ -109,3 +83,4 @@ const CalendlyEmbed: FC<CalendlyEmbedProps> = ({ url }) => {
 };
 
 export default CalendlyEmbed;
+
