@@ -15,7 +15,15 @@ const DemoButton = ({
   variant = "default"
 }: DemoButtonProps) => {
   const isMobile = () => {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+    // Detecta apenas dispositivos móveis reais (não tablets)
+    const userAgent = navigator.userAgent;
+    const isMobileDevice = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+    const isSmallScreen = window.innerWidth < 768;
+    
+    // Exclui explicitamente iPad da detecção mobile
+    const isTablet = /iPad/i.test(userAgent);
+    
+    return isMobileDevice && !isTablet && isSmallScreen;
   };
 
   const handleClick = () => {
