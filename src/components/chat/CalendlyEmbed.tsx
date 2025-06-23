@@ -17,18 +17,21 @@ const CalendlyEmbed: FC<CalendlyEmbedProps> = ({ url }) => {
   }, []);
 
   // Extract Calendly username/event from URL
-  const getCalendlyPath = (calendlyUrl: string) => {
+  const getCalendlyEmbedUrl = (calendlyUrl: string) => {
     try {
-      const url = new URL(calendlyUrl);
-      return url.pathname;
+      const urlObj = new URL(calendlyUrl);
+      // Adiciona parâmetros específicos para embed
+      urlObj.searchParams.set('embed_domain', window.location.hostname);
+      urlObj.searchParams.set('embed_type', 'Inline');
+      return urlObj.toString();
     } catch {
       return '';
     }
   };
 
-  const calendlyPath = getCalendlyPath(url);
+  const embedUrl = getCalendlyEmbedUrl(url);
 
-  if (!calendlyPath) {
+  if (!embedUrl) {
     return (
       <a 
         href={url} 
@@ -58,7 +61,7 @@ const CalendlyEmbed: FC<CalendlyEmbedProps> = ({ url }) => {
         
         <div 
           className="calendly-inline-widget" 
-          data-url={`https://calendly.com${calendlyPath}?embed_domain=${window.location.hostname}&embed_type=Inline`}
+          data-url={embedUrl}
           style={{ minWidth: '320px', height: '600px' }}
         />
       </div>
