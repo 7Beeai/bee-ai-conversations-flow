@@ -79,6 +79,12 @@ const Chat = () => {
     try {
       const botResponseText = await sendChatMessage(inputText, userId);
       
+      // Log para debug - ver a resposta do bot
+      console.log("=== Chat Debug - Resposta do Bot ===");
+      console.log("Resposta recebida:", botResponseText);
+      console.log("Comprimento:", botResponseText?.length);
+      console.log("Tipo:", typeof botResponseText);
+      
       // Add bot response to messages
       setMessages(prev => [...prev, {
         id: uuidv4(),

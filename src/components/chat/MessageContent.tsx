@@ -8,19 +8,30 @@ interface MessageContentProps {
 }
 
 const MessageContent: FC<MessageContentProps> = ({ text }) => {
+  // Log para debug - ver exatamente o que está chegando
+  console.log("=== MessageContent Debug ===");
+  console.log("Texto recebido:", text);
+  console.log("Comprimento:", text.length);
+  console.log("Primeiros 100 chars:", text.substring(0, 100));
+  
   // Regex mais específico para URLs do Calendly que captura até quebra de linha ou espaço
   const calendlyRegex = /(https:\/\/calendly\.com\/[^\s\n]+)/g;
   
   // Check if message contains Calendly URL
   const calendlyMatches = text.match(calendlyRegex);
   
+  console.log("Matches encontrados:", calendlyMatches);
+  
   if (calendlyMatches && calendlyMatches.length > 0) {
+    console.log("Processando URLs do Calendly:", calendlyMatches);
+    
     // Split text by Calendly URLs and render components
     let remainingText = text;
     const result = [];
     let key = 0;
     
     calendlyMatches.forEach((url) => {
+      console.log("Processando URL:", url);
       const parts = remainingText.split(url);
       
       // Add text before URL if not empty
@@ -68,6 +79,8 @@ const MessageContent: FC<MessageContentProps> = ({ text }) => {
     ALLOWED_TAGS: [], 
     ALLOWED_ATTR: [] 
   });
+  
+  console.log("Nenhum link Calendly encontrado, exibindo texto normal");
   
   return <span className="whitespace-pre-line">{sanitizedText}</span>;
 };
