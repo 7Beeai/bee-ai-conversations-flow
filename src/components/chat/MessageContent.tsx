@@ -8,8 +8,8 @@ interface MessageContentProps {
 }
 
 const MessageContent: FC<MessageContentProps> = ({ text }) => {
-  // Regex melhorado para detectar URLs do Calendly com parâmetros
-  const calendlyRegex = /https:\/\/calendly\.com\/[^\s\n]+/g;
+  // Regex aprimorado para detectar URLs do Calendly com todos os parâmetros, incluindo caracteres especiais
+  const calendlyRegex = /https:\/\/calendly\.com\/[^\s\n<>"']+/g;
   
   // Check if message contains Calendly URL
   const calendlyMatches = text.match(calendlyRegex);
