@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
 
 type LeadFormModalProps = {
   isOpen: boolean;
@@ -14,33 +15,73 @@ const LeadFormModal = ({ isOpen, onClose }: LeadFormModalProps) => {
   const [name, setName] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!name.trim() || !whatsapp.trim()) {
-      alert("Por favor, preencha todos os campos");
+      toast({
+        title: "Erro",
+        description: "Por favor, preencha todos os campos",
+        variant: "destructive",
+      });
       return;
     }
 
     setIsSubmitting(true);
 
-    // Simular envio dos dados (você pode integrar com sua API aqui)
-    console.log("Dados capturados:", { name, whatsapp });
+    try {
+      // Enviar dados para o webhook do n8n
+      console.log("Enviando dados para n8n:", { name, whatsapp });
+      
+      const response = await fetch("https://n8n.7bee.com/webhook/formulariolp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name.trim(),
+          whatsapp: whatsapp.trim(),
+          timestamp: new Date().toISOString(),
+          source: "landing_page_form"
+        }),
+      });
 
-    // Criar mensagem personalizada para WhatsApp
-    const message = `Olá! Meu nome é ${name} e gostaria de agendar uma demonstração da 7Bee.AI. Meu WhatsApp é ${whatsapp}.`;
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/553184849770?text=${encodedMessage}`;
+      if (response.ok) {
+        console.log("Dados enviados com sucesso para n8n");
+        
+        toast({
+          title: "Sucesso!",
+          description: "Seus dados foram enviados com sucesso!",
+        });
 
-    // Abrir WhatsApp em nova aba
-    window.open(whatsappUrl, "_blank");
+        // Criar mensagem personalizada para WhatsApp
+        const message = `Olá! Meu nome é ${name} e gostaria de agendar uma demonstração da 7Bee.AI. Meu WhatsApp é ${whatsapp}.`;
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/553184849770?text=${encodedMessage}`;
 
-    // Resetar formulário e fechar modal
-    setName("");
-    setWhatsapp("");
-    setIsSubmitting(false);
-    onClose();
+        // Abrir WhatsApp em nova aba
+        window.open(whatsappUrl, "_blank");
+
+        // Resetar formulário e fechar modal
+        setName("");
+        setWhatsapp("");
+        onClose();
+      } else {
+        throw new Error("Falha ao enviar dados");
+      }
+    } catch (error) {
+      console.error("Erro ao enviar dados para n8n:", error);
+      
+      toast({
+        title: "Erro",
+        description: "Houve um problema ao enviar seus dados. Tente novamente.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
