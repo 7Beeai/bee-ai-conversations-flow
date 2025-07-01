@@ -1,6 +1,5 @@
 
-import DemoButton from "./DemoButton";
-import { Button } from "@/components/ui/button";
+import LeadForm from "./LeadForm";
 
 const HeroSection = () => {
   return (
@@ -15,9 +14,6 @@ const HeroSection = () => {
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-secondary-text mb-4 sm:mb-6 md:mb-8 max-w-xl mx-auto lg:mx-0 px-4 sm:px-0">
               Conversas humanizadas, com foco em vendas, atendimento e recuperação — adaptadas 100% à necessidade do seu negócio.
             </p>
-            <div className="hidden md:flex justify-center lg:justify-start">
-              <DemoButton className="text-base md:text-lg py-3 px-5 md:py-4 md:px-6 lg:py-6 lg:px-8" />
-            </div>
           </div>
           <div className="w-full lg:w-1/2 mt-2 sm:mt-4 lg:mt-0 px-4 sm:px-0">
             <div className="relative aspect-video rounded-lg shadow-xl overflow-hidden" style={{padding: '56.25% 0 0 0', position: 'relative'}}>
@@ -32,8 +28,10 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-        <div className="md:hidden flex justify-center mt-4 sm:mt-6 px-4">
-          <DemoButton className="text-base sm:text-lg py-3 px-5 sm:py-4 sm:px-6 w-full max-w-sm" />
+        
+        {/* Formulário centralizado abaixo do conteúdo principal */}
+        <div className="flex justify-center mt-8 md:mt-12 lg:mt-16">
+          <LeadForm />
         </div>
       </div>
     </section>
