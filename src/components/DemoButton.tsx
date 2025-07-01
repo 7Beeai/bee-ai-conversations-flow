@@ -1,5 +1,6 @@
 
 import { Button } from "@/components/ui/button";
+import { useLeadModal } from "@/contexts/LeadModalContext";
 
 type DemoButtonProps = {
   children?: React.ReactNode;
@@ -14,26 +15,10 @@ const DemoButton = ({
   size = "default",
   variant = "default"
 }: DemoButtonProps) => {
-  const isMobile = () => {
-    // Detecta apenas dispositivos móveis reais (não tablets)
-    const userAgent = navigator.userAgent;
-    const isMobileDevice = /Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
-    const isSmallScreen = window.innerWidth < 768;
-    
-    // Exclui explicitamente iPad da detecção mobile
-    const isTablet = /iPad/i.test(userAgent);
-    
-    return isMobileDevice && !isTablet && isSmallScreen;
-  };
+  const { openModal } = useLeadModal();
 
   const handleClick = () => {
-    if (isMobile()) {
-      // Mobile: direciona para WhatsApp
-      window.open("https://wa.me/553184849770", "_blank");
-    } else {
-      // Desktop e Tablet: direciona para página de chat
-      window.location.href = "/chat";
-    }
+    openModal();
   };
 
   const displayText = children || "👉 Quero uma demonstração agora";

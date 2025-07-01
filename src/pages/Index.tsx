@@ -11,8 +11,12 @@ import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 import ChatModal from "@/components/ChatModal";
 import FloatingCta from "@/components/FloatingCta";
+import LeadFormModal from "@/components/LeadFormModal";
+import { LeadModalProvider, useLeadModal } from "@/contexts/LeadModalContext";
 
-const Index = () => {
+const IndexContent = () => {
+  const { isOpen, closeModal } = useLeadModal();
+
   useEffect(() => {
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -48,7 +52,16 @@ const Index = () => {
       <Footer />
       <ChatModal />
       <FloatingCta />
+      <LeadFormModal isOpen={isOpen} onClose={closeModal} />
     </div>
+  );
+};
+
+const Index = () => {
+  return (
+    <LeadModalProvider>
+      <IndexContent />
+    </LeadModalProvider>
   );
 };
 
