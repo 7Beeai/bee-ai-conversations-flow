@@ -58,14 +58,6 @@ const LeadFormModal = ({ isOpen, onClose }: LeadFormModalProps) => {
         description: "Seus dados foram enviados com sucesso!",
       });
 
-      // Criar mensagem personalizada para WhatsApp
-      const message = `Olá! Meu nome é ${name} e gostaria de agendar uma demonstração da 7Bee.AI. Meu WhatsApp é ${whatsapp}.`;
-      const encodedMessage = encodeURIComponent(message);
-      const whatsappUrl = `https://wa.me/553184849770?text=${encodedMessage}`;
-
-      // Abrir WhatsApp em nova aba
-      window.open(whatsappUrl, "_blank");
-
       // Resetar formulário e fechar modal
       setName("");
       setWhatsapp("");
@@ -76,16 +68,8 @@ const LeadFormModal = ({ isOpen, onClose }: LeadFormModalProps) => {
       // Mesmo com erro, vamos continuar o fluxo pois pode ser só CORS
       toast({
         title: "Dados enviados!",
-        description: "Redirecionando para o WhatsApp...",
+        description: "Obrigado pelo seu interesse!",
       });
-
-      // Criar mensagem personalizada para WhatsApp
-      const message = `Olá! Meu nome é ${name} e gostaria de agendar uma demonstração da 7Bee.AI. Meu WhatsApp é ${whatsapp}.`;
-      const encodedMessage = encodeURIComponent(message);
-      const whatsappUrl = `https://wa.me/553184849770?text=${encodedMessage}`;
-
-      // Abrir WhatsApp em nova aba
-      window.open(whatsappUrl, "_blank");
 
       // Resetar formulário e fechar modal
       setName("");
